@@ -1,0 +1,575 @@
+@import "mixin";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #111;
+    width: 100%;
+    height: 100%;
+}
+
+    // INDEX-HOME
+.logo {
+    position: fixed;
+    top: 3rem;
+    left: 5rem;
+    cursor: pointer;
+    width: 5rem;
+    z-index: 100;  
+}
+
+#logo{
+    width: 10vw;
+}
+
+#menu {
+    position: fixed;
+    top: 5rem;
+    right: 5rem;
+    cursor: pointer;
+    width: 40px;
+    z-index: 99;
+}
+
+#menuNav {
+    display: none;
+    position: fixed;
+    top: 0;
+    padding-top: 7rem;
+    z-index: 100;
+    height: 100%;
+    width: 300px;
+    background: #fff;
+    a {
+        display: flex;
+        padding: 5px 0px 10px 50px;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: #111;
+        &:hover {
+            color: #111;
+        }
+    }
+    .menuCierre {
+        top: 3rem;
+        right: 100px;
+        z-index: 100;
+        position: fixed;
+        img {
+            width: 30px;  
+            cursor: pointer;
+        }
+    }
+}
+
+#menuNav.visible {
+    right: 0;
+    display: block;
+    background: #fff;
+}
+
+.showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 12rem;
+    video {
+        background: url('media/video.mp4');
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .text {
+        height: 100%;
+        text-align: center;
+        color:#fff;
+        h2 {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 7rem;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1rem;
+            text-transform: uppercase;
+            margin-top: 3vh;
+        }
+        p {
+            font-size: 1em;
+            margin: 30px 0;
+            font-weight: 400;
+            max-width: 500px;
+        }
+        button {
+
+            @include btns;
+            &:hover {
+                background: #fff;
+            }
+        }
+    }
+}
+
+    //MODAL/FORMULARIO
+.modal-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.3);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal {
+    display: block;
+    background-color: #fff;
+    width: 600px;
+    max-width: 100%;
+    padding: 20px 30px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    h1 {
+        margin: 0;
+        p {
+            opacity: 0.7;
+            font-size: 14px;
+        }    
+    }
+}
+
+.form {
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.form label {
+	display: inline-block;
+	padding: 4px;
+}
+
+.form input {
+	border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	padding: 10px;
+	width: 100%;
+}
+
+.form input:focus {
+	outline: 0;
+	border-color: #777;
+}
+
+.form .success input {
+	border-color: #2ecc71;
+}
+
+.form .error input {
+	border-color: #e74c3c;
+}
+
+.form i {
+	visibility: hidden;
+	position: absolute;
+	top: 40px;
+	right: 10px;
+}
+
+.form .success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.form .error i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
+
+.form small {
+	color: #e74c3c;
+	position: absolute;
+	left: 0;
+	visibility: hidden;
+}
+
+.form .error small {
+	visibility: visible;
+}
+
+.form button {
+    display: inline-block;
+    justify-content: center;
+    font-size: 1rem;
+    background: #e12727;
+    border-radius: 100px;
+    padding: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 10rem;
+    text-align: center;
+    margin-top: 10px;
+    &:hover {
+        background: #fff;
+    }
+}
+
+#salir {
+    display: flex;
+    width: 16px;
+    cursor: pointer;
+}
+
+#close {
+    display: inline-block;
+    font-size: 1em;
+    background: #e12727;
+    border-radius: 100px;
+    padding: 10px 50px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    &:hover {
+        background: #fff;
+    }
+}
+
+.social {
+    bottom: 10vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    
+    p {
+        margin-right: 1em;
+    }
+    li {
+        list-style: none; 
+        display: inline-block;
+        padding: 0.5rem;
+        img {
+            width: 35px;
+            &:hover {
+                transform: scale(1.2);
+                transition: 0.2s;
+            }
+        }
+    }
+}
+
+#formulario {
+    display: block;
+    text-align: center;
+    padding: 5px;
+}
+
+#tusDatos {
+    display: inline-block;
+    justify-content: center;
+    background: #e12727;
+    border-radius: 100px;
+    padding: 5px 35px;
+    color: #111;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0.5rem;
+    &:hover {
+        color: #fff;
+    }
+}
+
+    // CARRITO/PEDIDO 
+.cartPedido {
+    position: fixed;
+    top: 15rem;
+    right: 5rem;
+    cursor: pointer;
+    width: 40px;
+    z-index: 100;
+}
+
+
+#conteoCarrito {
+    background-color: #622424;
+    color: #fff;
+    offset: 10px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 4px;
+    position: fixed;
+    top: 14.5rem;
+    right: 4rem;
+    width: 25px;
+    z-index: 100;
+    text-align: center;
+}
+
+
+    // MODAL PEDIDO   
+.carrito {
+    min-height: 50%;
+    max-width: 410px;
+    width: 100%;   
+}  
+
+#contact {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    th {
+        padding: 0rem 0rem 0rem 2.2rem;
+    }
+}
+
+.table__productos {
+    display: flex;
+    img{
+        width: 5rem;
+        object-fit: contain;
+        border-radius: 6px;
+        background: #e12727;
+    }
+}
+
+.title{
+    font-size: 1rem;
+    padding: 2rem;
+}
+
+.delete {
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    width: 16px;
+    height: 0;
+}
+      
+.table__cantidad{
+    input {
+        width: 40px;
+        outline: 0;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+} 
+    
+.alert {
+    position: fixed;
+    text-align: center;
+    background: #fff;
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.remove {
+    display: none;
+}
+
+.confirmar {
+    position: fixed;
+    text-align: center;
+    background: #fff;
+    width: 100%;
+}
+
+.alerta {
+    display: none;
+}
+
+    // CARD/PEDIDO
+#diegos-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}    
+
+#fila1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 13rem; 
+    background: #e12727;
+}
+
+.card {
+    display: flex;
+    margin-top: 2rem;
+    img {
+        padding-right: 0;
+        width: 20rem;
+        height: 25rem;
+    }
+    .like {
+        display: block;
+        width: 3rem;
+        height: 2.5rem;
+        padding: 0.5rem 0.5rem 0.5rem 1rem;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+#text-menu {
+    color: #fff;
+    padding: 0rem 1rem 0rem 2rem;
+    margin-top: 2rem;
+    width: 12rem;
+    line-height: 2rem;
+    span {
+        width: 100%;
+        h2 {
+            font-weight: bold;
+            width: 100%;
+            p {
+                margin-top: 1rem;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}    
+
+.btn-pedido {
+    @include btn-agregar;
+    &:hover {
+        opacity: 0.7;
+        border: 1px solid #ccc;
+    }    
+}
+  
+    //BOTONES/MENUNAV/PEDIDO
+.misBotones {
+    display: flex;
+    position: fixed;
+    justify-content: space-evenly;
+    width: 100%; 
+    font-size: 1.1rem;
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        padding: 0.5rem;
+        border: 1px solid transparent; 
+        margin-top: 4rem;
+        transition: 0.7s;
+        &:hover {
+            transform: scale(1.1);
+            opacity: 0.7;
+        }  
+    }
+}
+
+#miVideo {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#fila3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #fff;
+    a {
+        @include btn-agregar;
+        &:hover {
+            opacity: 0.7;
+            border: 1px solid #ccc;
+        }    
+    }
+}
+
+    // FOOTER
+#miFooter {
+    display: inline-block;
+    align-items: center;
+    background: #111;
+    width: 100%;
+    height: 100%;
+    margin-top: 17em;
+    p {
+        margin-top: 0.5rem;
+        text-align: center;
+        color: #fff;
+    }
+}
+
+
+.misRedes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+        list-style: none;
+        a {
+            display: inline-block;
+            padding: 1rem 0.5rem 0rem 0.5rem;
+            img {
+                width: 50px;
+                &:hover {
+                    transform: scale(1.2);
+                    transition: 0.2s;
+                }
+            }
+        }
+    }
+}
+
+.btn-creador {
+    font-size: 0.5rem;
+    background: #e12727;
+    border-radius: 100px;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    text-transform: uppercase;
+    width: 8rem;
+        &:hover {
+        background: #fff;
+    }
+}
